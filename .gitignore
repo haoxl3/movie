@@ -6,3 +6,12 @@ npm-debug.log
 
 # edit
 .vscode
+
+#System 
+.DS_Store
+
+#generate
+dist
+
+#Build
+build
