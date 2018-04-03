@@ -21,6 +21,9 @@
   },
   "homepage": "https://github.com/haoxl3/movie#readme",
   "dependencies": {
-    "koa": "^2.5.0"
+    "ejs": "^2.5.8",
+    "koa": "^2.5.0",
+    "koa-views": "^6.1.4",
+    "pug": "^2.0.3"
   }
 }
