@@ -4,7 +4,8 @@ const {resolve} = require('path')
 ;(async() => {
     const script = resolve(__dirname, '../crawler/trailer-list')
     const child = cp.fork(script, [])//返回子进程对象
-    let invoked = false//标识进行是否运行
+    let invoked = false//标识进程是否运行
+    //注册事件
     child.on('error', err => {
         if(invoked) return 
         invoked = true 
@@ -12,10 +13,11 @@ const {resolve} = require('path')
     })
     child.on('exit', code => {
         if(invoked) return 
-        invoked = false 
+        invoked = true 
         let err = code === 0 ? null:new Error('exit code' + code)
         console.log(err)
     })
+    //message从trailer-list.js中send到了此处
     child.on('message', data => {
         let result = data.result 
         console.log(result)
